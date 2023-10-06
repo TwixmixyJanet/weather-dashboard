@@ -1,16 +1,16 @@
-var cityInputEl = document.getElementById("city-input");
+var cityInputText = document.getElementById("city-input");
 var searchForm = document.getElementById("search-form");
-var searchBtn = document.getElementById("search-btn")
-var pastSearchedCitiesEl = document.getElementById("search-history")
-var clearBtn = document.getElementById("clear-history-button");
-var presentDayWeather = document.getElementById("present-day-weather");
-var fiveDayForecast = document.getElementById("five-day-forecast");
-var searchHistory = [];
+var searchButton = document.getElementById("search-btn")
+var savedSearches = document.getElementById("saved-searches")
+var clearButton = document.getElementById("clear-button");
+var todaysWeather = document.getElementById("todays-weather");
+var forecast = document.getElementById("forecast");
+var loggedSearches = [];
 
 function dashboard(e) {
     console.log("dashboard initates")
     e.preventDefault();
-    var cityName = cityInputEl.value;
+    var cityName = cityInputText.value;
     displayWeather(cityName);
 }
 
@@ -33,12 +33,12 @@ function displayWeather(cityName) {
                 })
                 .then (function (fiveDayData) {
                     console.log("five day initates")
-                    if (searchHistory.includes(currentData.name) === false) {
-                        searchHistory.push(currentData.name);
-                        localStorage.setItem("city", JSON.stringify(searchHistory));
+                    if (loggedSearches.includes(currentData.name) === false) {
+                        loggedSearches.push(currentData.name);
+                        localStorage.setItem("city", JSON.stringify(loggedSearches));
                     }
                     displayCity();
-                    presentDayWeather.innerHTML = 
+                    todaysWeather.innerHTML = 
                     `
                     <ul>
                         <li class="title">
@@ -52,7 +52,6 @@ function displayWeather(cityName) {
                         
                     </ul>
                     `;
-                    // <li>UV Index: ${currentData.current.uvi}</li>
                     var cards = "";
                     for (var i = 1; i < 6; i++) {
                         cards = cards +
@@ -66,7 +65,7 @@ function displayWeather(cityName) {
                         </ul>
                         `;
                     }
-                    fiveDayForecast.innerHTML = cards;
+                    forecast.innerHTML = cards;
                 });
         });
 }
@@ -74,15 +73,15 @@ function displayWeather(cityName) {
 function displayCity() {
     console.log("display city initates")
     if (localStorage.getItem("city")) {
-        searchHistory = JSON.parse(localStorage.getItem("city"));
+        loggedSearches = JSON.parse(localStorage.getItem("city"));
     }
 
     var cityList = "";
-    for (var i = 0; i < searchHistory.length; i++) {
-        cityList = cityList + `<button class="btn btn-secondary my-2" type="submit">${searchHistory[i]}</button>`;
+    for (var i = 0; i < loggedSearches.length; i++) {
+        cityList = cityList + `<button class="btn btn-secondary my-2" type="submit">${loggedSearches[i]}</button>`;
     }
 
-    pastSearchedCitiesEl.innerHTML = cityList;
+    savedSearches.innerHTML = cityList;
     var myDashTwo = document.querySelectorAll(".my-2");
     for (var i = 0; i < myDashTwo.length; i++) {
         myDashTwo[i].addEventListener("click", function() {
@@ -95,15 +94,15 @@ displayCity();
 
 searchForm.addEventListener("submit", dashboard);
 
-function clearSearchHistory() {
+function clearloggedSearches() {
     console.log("clear cities initates")
     localStorage.clear();
-    pastSearchedCitiesEl.innerHTML = "";
-    searchHistory = [];
+    savedSearches.innerHTML = "";
+    loggedSearches = [];
 }
 
-clearBtn.addEventListener("click", function() {
-    clearSearchHistory();
+clearButton.addEventListener("click", function() {
+    clearloggedSearches();
 });
 
 

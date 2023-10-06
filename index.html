@@ -46,55 +46,57 @@ THEN I am again presented with current and future conditions for that city -->
 
 <!-- Main -->
     <main class="container">
+        <div class="row">
     <!-- Section -->
-        <!-- Search functionality -->
-        <section class="col-12 col-md-3">
-            <form id="search-form">
-                <label for="" class="text-primary">Search for a City:</label>
-                <input type="search" class="form-control my-2 text-primary" placeholder="Type City Here" id="city-input" />
-                <button type="submit" class="btn btn-outline-primary my-2" id="search-btn">Add City</button>
-            </form>
+            <section class="col-12 col-md-3"> 
+                <!-- Search functionality -->
+                <form id="search-form">
+                    <label class="text-primary">Search for a City:</label>
+                    <input type="search" class="form-control my-2 text-primary" placeholder="Type City Here" id="city-input" />
+                    <button type="submit" class="btn btn-outline-primary my-2" id="search-button">Add City</button>
+                </form>
 
-            <button type="submit" class="btn btn-primary my-2" id="clear-btn">Clear Cities</button>
-            <hr />
-            <div class="search-history" id="search-history">
-                <!-- search history displays through javascript -->
-                <!-- <button type="submit" class="btn btn-secondary my-2">City</button> -->
-            </div>
-        </section>
-        <section class="col-md-9 col-12">
-            
-            <!-- today's weather -->
-            <div class="row todays-weather" id="todays-weather">
+                <button type="submit" class="btn btn-primary my-2" id="clear-history-button">Clear Cities</button>
+                <hr />
+                <div class="search-history" id="search-history">
+                    <!-- search history displays through javascript -->
+                    <!-- <button type="submit" class="btn btn-secondary my-2">City</button> -->
+                </div>
+            </section>
+            <section class="col-md-9 col-12">
+                
+                <!-- today's weather -->
+                <div class="row present-day-weather" id="present-day-weather">
 
-            </div>
+                </div>
 
-            <!-- 5-day forecast header -->
-            <div class="row five-day-forecast-header">5-Day Forecast:</div>
+                <!-- 5-day forecast header -->
+                <div class="row five-day-forecast-header">5-Day Forecast:</div>
 
-            <!-- 5-days of forecast -->
-            <div class="five-day-forecast" id="five-day-forecast">
-                <!-- forecast will display through javascript -->
-                <!-- 
-                    <ul class="col-12 day">
-                        <li>Date</li>
-                        <li><img src="" alt="" /></li>
-                        <li>Temperature:</li>
-                        <li>Wind: </li>
-                        <li>Humidity: </li>
-                    </ul>
-                    repeat 4 more times
-                 -->
-            </div>
-        </section>
+                <!-- 5-days of forecast -->
+                <div class="five-day-forecast" id="five-day-forecast">
+                    <!-- forecast will display through javascript -->
+                    <!-- 
+                        <ul class="col-12 day">
+                            <li>Date</li>
+                            <li><img src="" alt="" /></li>
+                            <li>Temperature:</li>
+                            <li>Wind: </li>
+                            <li>Humidity: </li>
+                        </ul>
+                        repeat 4 more times
+                    -->
+                </div>
+            </section>
+        </div>
     </main>
 
 <!-- Footer? -->
     
-    <!-- Do we need Bootstrap JS?? -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <!-- Do we need jQuery? -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Do we need Bootstrap JS?? -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <!-- dayjs -->
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <!-- regular script -->

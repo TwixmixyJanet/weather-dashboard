@@ -24,9 +24,8 @@ function displayWeather(cityName) {
             return response.json();
         })
         .then(function (currentData) {
-            console.log("current data initates")
-            var oneCallUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentData.coord.lat}&lon=${currentData.coord.lon}&appid=b2da1db112f5ef2d52f8606a017dc730&units=imperial`;
-            fetch(oneCallUrl)
+            var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${currentData.coord.lat}&lon=${currentData.coord.lon}&appid=b2da1db112f5ef2d52f8606a017dc730&units=imperial`;
+            fetch(forecastUrl)
                 .then(function (response) {
                     console.log("current call initates")
                     return response.json();
@@ -52,6 +51,7 @@ function displayWeather(cityName) {
                         
                     </ul>
                     `;
+                    console.log("5 day data: ", fiveDayData)
                     var cards = "";
                     for (var i = 1; i < 6; i++) {
                         cards = cards +

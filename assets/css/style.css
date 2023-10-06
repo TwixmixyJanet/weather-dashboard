@@ -8,3 +8,7 @@ header {
     box-shadow: 5px 5px 1px #eedeff;
 
 }
+
+button {
+    width: 100%;
+}

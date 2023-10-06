@@ -3,8 +3,7 @@
 // API - connect to Weather and Geolocation
     // HINT: need to register for an API key for the geolocation for lat and long
     // Need to register for weather API key - could take 2hrs to activate
-var weatherAPIKey = "b2da1db112f5ef2d52f8606a017dc730";
-var weatherAPIURL = `https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=${weatherAPIKey}`;
+
     // FETCH API url
     // give it a variable
     // parse data
@@ -15,6 +14,7 @@ var clearButton = document.getElementById("clear-btn");
 var todaysWeather = document.getElementById("todays-weather");
 var fiveDayForecast = document.getElementById("five-day-forecast");
 var searchHistory = [];
+var cityName = cityInputElement.value;
 
 // Query search
     // Add city based off search
@@ -35,12 +35,13 @@ var searchHistory = [];
 function dashboard(e) {
     console.log("dashboard initates")
     e.preventDefault();
-    var cityName = cityInputElement.value;
     displayWeather(cityName);
 }
 
 function displayWeather(cityName) {
     console.log("display weather initates")
+    var weatherAPIKey = "b2da1db112f5ef2d52f8606a017dc730";
+    var weatherAPIURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityInputElement}&appid=${weatherAPIKey}`;
     fetch(weatherAPIURL)
         .then(function (response) {
             console.log("api response initates")
@@ -48,7 +49,8 @@ function displayWeather(cityName) {
         })
         .then(function (currentData) {
             console.log("current data initates")
-            var currentCallURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentData.coord.lat}&lon=${currentData.coord.lon}&appid=${weatherAPIKey}&units=imperial`;
+            console.log(currentData)
+            var currentCallURL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityInputElement}&appid=${weatherAPIKey}`;
             fetch(currentCallURL)
                 .then(function (response) {
                     console.log("current call initates")

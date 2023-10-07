@@ -51,24 +51,30 @@ How to use this app:
 
 ### Lessons Learned
 
-#### 1. 
+#### 1. APIs
+[Today's Weather API](https://api.openweathermap.org/data/2.5/weather?q=marietta&appid=b2da1db112f5ef2d52f8606a017dc730)<br />
+[Forecast Weather API](https://api.openweathermap.org/data/2.5/forecast?q=Marietta&appid=b2da1db112f5ef2d52f8606a017dc730)<br />
+Figuring out the APIs was definitely my biggest hangup. I could not get the URL correct for the forecast because I was using something called onecall, that I thought I was supposed to use. Thankfully one of the AskBCS teachers helped me see why I was receiving the unauthorized error and pointed me in the direction of finding the forecast API URL.
 <br />
 ![lesson 1](assets/img/lesson1.png)
 
-#### 2. 
- <br />
+#### 2. Displaying API data points
+This of course leads into how to properly display the API data once I had it linked correctly. For this I placed the above URLs in my browser and looked through the properties until I could find the traversal method of displaying the data.
+<br />
 ![lesson 2](assets/img/lesson2.png)
 
-#### 3. 
- <br />
+#### 3. Looping through dayjs
+After I figured out my API issues and most of the data points needed for displaying, I then encountered the issue of how to increment the date to properly display for the forecast. I tried probably at least a dozen different ways before I landed on deciding to use an object to increment to additional days.
+<br />
 ![lesson 3](assets/img/lesson3.png)
 
-#### 4. 
+#### 4. Bootstrap
+Since the last assignment contained all the boostrap code we needed, this project was a great opportunity for me to do some research and find the classes I wanted to apply for a decent layout for the app. I still used the custom style sheet for a couple properties I couldn't think how to apply, but I was very happy with the row and column properties here. Also the Jumbotron!!
 <br />
 ![lesson 4](assets/img/lesson4.png)
 
 #### Synopsis
-
+Overall this was another great learning experience for me. It tested my knowledge from the last three weeks and also tested my patience in coming up with the solutions I needed. One of the biggest lessons I learned here was to reach out for help after struggling with an issue for anywhere over an hour. To make sure I have console logged everything I can think of and fix all the things I can fix, then reach out for help with the remaining aspects.
 
 ## Installation
 

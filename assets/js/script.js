@@ -54,10 +54,19 @@ function displayWeather(cityName) {
                     console.log("5 day data: ", fiveDayData)
                     var cards = "";
                     for (var i = 1; i < 6; i++) {
-                        cards = cards +
+                        // days = dayjs().add(1, 'day').format(" dddd, MMM D YYYY ");
+                        daysInc = {
+                            1: dayjs().add(1, 'day').format(" dddd, MMM D YYYY "),
+                            2: dayjs().add(2, 'day').format(" dddd, MMM D YYYY "),
+                            3: dayjs().add(3, 'day').format(" dddd, MMM D YYYY "),
+                            4: dayjs().add(4, 'day').format(" dddd, MMM D YYYY "),
+                            5: dayjs().add(5, 'day').format(" dddd, MMM D YYYY ")
+                        }
+                        cards = cards + 
+                        
                         `
                         <ul class="col-12 col-xl-2 day">
-                            <li>${dayjs(fiveDayData.list[i]).format(" dddd, MMM D YYYY ")}</li>
+                            <li class="title>${daysInc[i]}</li>
                             <li><img src="https://openweathermap.org/img/wn/${fiveDayData.list[i].weather[0].icon}@2x.png" /></li>
                             <li>Temperature: ${fiveDayData.list[i].main.temp}</li>
                             <li>Wind: ${fiveDayData.list[i].wind.speed}</li>

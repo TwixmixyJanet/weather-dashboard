@@ -3,12 +3,28 @@
 }
 
 header {
-    background-color: #0d6efd;
-    color: #fff;
     box-shadow: 5px 5px 1px #eedeff;
-
 }
 
 button {
     width: 100%;
+}
+
+.title {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.forecast-header {
+    display: none;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+li {
+    padding: 3px;
+}
+
+ul {
+    box-shadow: 5px 5px 1px #eedeff;
 }

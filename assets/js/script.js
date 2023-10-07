@@ -5,6 +5,7 @@ var savedSearches = document.getElementById("saved-searches")
 var clearButton = document.getElementById("clear-button");
 var todaysWeather = document.getElementById("todays-weather");
 var forecast = document.getElementById("forecast");
+var forecastHeader = document.querySelector(".forecast-header")
 var loggedSearches = [];
 
 function dashboard(e) {
@@ -39,13 +40,13 @@ function displayWeather(cityName) {
                     displayCity();
                     todaysWeather.innerHTML = 
                     `
-                    <ul>
+                    <ul class="card list-unstyled">
                         <li class="title">
                         ${currentData.name} 👉 
                         <span> ${dayjs().format(" dddd, MMM D YYYY ")} retrieved at ${dayjs().format("  h:mm:ssA")} </span>
                         </li>
                         <li><img src="https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png" /></li>
-                        <li>Temperature: ${currentData.main.temp}</li>
+                        <li>${currentData.main.temp}° degrees</li>
                         <li>Wind: ${currentData.wind.speed}</li>
                         <li>Humidity: ${currentData.main.humidity}</li>
                         
@@ -65,16 +66,18 @@ function displayWeather(cityName) {
                         cards = cards + 
                         
                         `
-                        <ul class="col-12 col-xl-2 day">
-                            <li class="title>${daysInc[i]}</li>
+                        
+                        <ul class="col-12 col-xl-2 day card list-unstyled m-2 bg-primary text-light">
+                            <li class="title">${daysInc[i]}</li>
                             <li><img src="https://openweathermap.org/img/wn/${fiveDayData.list[i].weather[0].icon}@2x.png" /></li>
-                            <li>Temperature: ${fiveDayData.list[i].main.temp}</li>
+                            <li>${fiveDayData.list[i].main.temp}° degrees</li>
                             <li>Wind: ${fiveDayData.list[i].wind.speed}</li>
                             <li>Humidity: ${fiveDayData.list[i].main.humidity}</li>
                         </ul>
                         `;
                     }
                     forecast.innerHTML = cards;
+                    forecastHeader.style.display = "block";
                 });
         });
 }
